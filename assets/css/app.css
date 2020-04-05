@@ -1,0 +1,63 @@
+body {
+    background-color: white;
+    font-family: 'Sen', Arial, Helvetica, sans-serif;
+}
+
+.material-icons, .btn * {
+	vertical-align: middle;
+}
+
+.back-button {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+nav {
+	background: black;
+}
+
+nav a {
+	color: white !important;
+	font-weight: 700;
+	text-decoration: none !important;
+	opacity: 0.8;
+	transition: all 0.4s;
+}
+nav a:hover {
+	opacity: 1;
+}
+
+.main-header {
+	padding: 80px 40px;
+	background-image: url(../img/fond_espadrilles.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+
+.alert-container {
+	position: absolute;
+	display: inline-flex;
+	justify-content: center;
+	width: 100%;
+	padding-top:40px;
+}
+.alert {
+	position: fixed;
+	z-index: 1000;
+}
+
+.product_img {
+	width:100%;
+}
+
+
+.page-item.active .page-link {
+	background-color: black;
+	border-color: black;
+}
+
+.page-link, .page-link:hover {
+	color: black;
+}

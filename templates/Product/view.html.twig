@@ -1,0 +1,44 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+  <h1 class="display-5 font-weight-bold">Espadrilles Homme</h1>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+
+    <a href="{{ path('product_index') }}" class="btn btn-default back-button">
+      <span class="material-icons">undo</span> Retour
+    </a>
+
+    <div class="col-md-9">
+
+      <div class="row m-md-3">
+      
+        <img class="product_img" src="{{ asset('../assets/img/') }}{{ product.img }}" style="width:90%">
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <h2 class="pt-3 pt-md-5">{{ product.title }}</h2>
+      <i>{{ product.description }}</i><br>
+      <p class="lead">{{ product.price }} €</p>
+
+      <hr>
+
+      <form class="form-inline justify-content-between" action="{{ path('add_to_card', {'id_product': product.id}) }}">
+        <input type="numbers" name="product_qt" class="form-control col-sm-3 mb-2" value="1" required>
+        <button type="submit" class="form-control col-sm-8 mb-2 btn btn-small btn-outline-info">Ajouter au panier</button>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

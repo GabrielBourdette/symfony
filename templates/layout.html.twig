@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Catalogue</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet"> 
+    {{ encore_entry_link_tags('app') }}
+  {% endblock %}
+</head>
+
+<body>
+    <nav class="site-header sticky-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+      <div class="container col-3 d-flex flex-column flex-md-row justify-content-between">
+        <a href="{{ path('product_index') }}">Accueil</a>
+        <a href="{{ path('card_index') }}">Panier <sup>( {{ cardQuantity }} )</sup></a>
+      </div>
+    </nav>
+
+    <div class="alert-container">
+      {% for message in app.flashes('infos') %}
+        <div class="alert alert-info shadow-sm" role="alert">{{ message }}</div>
+      {% endfor %}
+    </div>
+
+    <div class="main-header position-relative m-3 text-center bg-light">
+        {% block title %}
+        {% endblock %}
+    </div>
+
+    <div class="row m-0">
+
+      <div id="content" class="col-md-12">
+        {% block body %}
+        {% endblock %}
+      </div>
+    </div>
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {{ encore_entry_script_tags('app') }}
+    
+  {% endblock %}
+
+</body>
+</html>

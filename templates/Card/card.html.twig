@@ -1,0 +1,74 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+  <h1 class="display-5 font-weight-bold">Dans votre panier</h1>
+  <p class="lead">Et bientôt chez vous !</p>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-9">
+
+      <div class="row m-md-3">
+
+        {% for product in listProducts %}
+
+        <div class="col-sm-6 pt-3 px-3 pt-md-5 px-md-5 mb-3 text-center overflow-hidden">
+          <div class="my-3 py-3">
+
+            <a href="{{ path('product_view', {'slug': product.slug}) }}">
+              <div class="bg-light" height=100>
+                <img class="product_img" src="{{ asset('../assets/img/') }}{{ product.img }}">
+              </div>
+            </a>
+
+            <div class="row">
+              <div class="col-sm-7 text-left">
+                <p>{{ product.title }} <br> x {{ productsQuantities[product.id] }}</p>
+              </div>
+              <div class="col-sm-5">
+                <p>{{ product.price }} €</p>
+              </div>
+            </div>
+
+            <a href="{{ path('card_one_more', {'id_product': product.id}) }}" class="btn btn-small btn-outline-info">+ 1</a>
+            <a href="{{ path('card_one_less', {'id_product': product.id}) }}" class="btn btn-small btn-outline-info">- 1</a>
+            <a href="{{ path('card_remove_one', {'id_product': product.id}) }}" class="btn btn-small btn-outline-danger">Retier</a>
+
+          </div>
+        </div>
+
+        {% else %}
+          <div class="col-sm-12 p-2 mb-3 text-center overflow-hidden">
+            <h2 class="display-5">Pas (encore !) de produits</h2>
+          </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+      <h2 class="pt-3 pt-md-5">Total</h2>
+      <i class="card_total">{{ cardTotal }} €</i>
+
+      <hr>
+
+      {% if cardTotal > 0 %}
+        <a href="{{ path('empty_card') }}" class="btn btn-outline-danger">
+          Vider le panier
+        </a>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
