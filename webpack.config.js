@@ -10,9 +10,9 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
-    .setPublicPath('/symfony_site/public/build')
+    .setPublicPath('/symfony-dev/public/build')
     // only needed for CDN's or sub-directory deploy
-    // .setManifestKeyPrefix('symfony_site/')
+    // .setManifestKeyPrefix('build/')
 
     /*
      * ENTRY CONFIG
