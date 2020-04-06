@@ -30,10 +30,6 @@ class ProductController extends AbstractController
 	    $listProducts = $repository->getProducts($page, $this->NB_PER_PAGE);
 	    $nbPages = ceil(count($listProducts) / $this->NB_PER_PAGE);
 
-	    if ($page > $nbPages) {
-	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-	    }
-
 	    return $this->render('Product/index.html.twig', array(
 	      'listProducts' => $listProducts,
 	      'nbPages'     => $nbPages,
