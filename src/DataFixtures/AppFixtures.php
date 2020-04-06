@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
         $product = new Product('espadrilles_blanches_rouges', 'espadrilles blanches et rouges', 'blanc rouge blanc', 20.50, 'rouge_blanc.jpg');
         $manager->persist($product);
 
-        $product = new Product('espadrilles beiges', 'espadrilles_beiges', 'beige beige beige', 16.50, 'beige.jpg');
+        $product = new Product('espadrilles_beiges', 'espadrilles beiges', 'beige beige beige', 16.50, 'beige.jpg');
         $manager->persist($product);
 
         $product = new Product('espadrilles_violettes', 'espadrilles violettes', 'violet violet violet', 19.50, 'violet.jpg');
